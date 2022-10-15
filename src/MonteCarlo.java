@@ -8,14 +8,14 @@ public class MonteCarlo {
         int testNo = sc.nextInt();
         sc.close();
         int success = 0;
-        for(int c = 0; c < 10000; c++){
+        for(int c = 0; c < 1000; c++){
             int[] days = new int[365];
             for (int i = 0; i < sampleSize; i++) {
-                int randDay = rand.nextInt(days.length);
-                days[randDay] = days[randDay] + 1;
+                days[rand.nextInt(days.length)]++;
             }
             for(int i = 0; i < days.length; i++){
-                if(days[i] == testNo){
+                // Equal or greater than or equal?
+                if(days[i] >= testNo){
                     success++;
                     break;
                 }
