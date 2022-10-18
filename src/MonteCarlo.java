@@ -8,19 +8,19 @@ public class MonteCarlo {
         int testNo = sc.nextInt();
         sc.close();
         int success = 0;
-        for(int c = 0; c < 1000; c++){
+        for(int c = 0; c < 100000; c++){
             int[] days = new int[365];
             for (int i = 0; i < sampleSize; i++) {
                 days[rand.nextInt(days.length)]++;
             }
             for(int i = 0; i < days.length; i++){
-                // Equal or greater than or equal?
                 if(days[i] >= testNo){
                     success++;
                     break;
                 }
             }
         }
-        System.out.println(success);
+        double divide = 1000;
+        System.out.println(Math.round(success/divide));
     }
 }
