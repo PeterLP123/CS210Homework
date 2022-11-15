@@ -1,40 +1,37 @@
-import java.util.Scanner;
-public class StackDirections {
+import java.util.*;
+public class JavaStackImplementation {
     public static void main(String args[] ) throws Exception {
         Scanner sc = new Scanner(System.in);
-        char [] stack = new char[100];
-        int top = 0;
+        Stack<String> directions = new Stack<>(); 
         while(true){
             String input = sc.nextLine();
             if(input.equals("Arrived")){
                 break;
             }
             else if(input.equals("Go Back")){
-                top--;
+                directions.pop();
             }
             else{         
-                stack[top] = input.charAt(3);
-                top++;               
+                directions.push(input);              
             }
         }
         sc.close();
-        top--;
-        while(top >= 0){
-            switch(stack[top]){
-                case 'N':
+        while(!directions.empty()){
+            String output = directions.pop();
+            switch(output){
+                case "Go North":
                     System.out.println("Go South");
                     break;
-                case 'S':
+                case "Go South":
                     System.out.println("Go North");
                     break;
-                case 'E':
+                case "Go East":
                     System.out.println("Go West");
                     break;
-                case 'W':
+                case "Go West":
                     System.out.println("Go East");
                     break;
             }
-            top--;
         }
     }
 }
