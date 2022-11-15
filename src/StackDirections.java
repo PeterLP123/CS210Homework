@@ -20,17 +20,19 @@ public class StackDirections{
         }
         sc.close();
         for(int i = top-1; i >= 0; i--){
-            if(stack[i].equals("Go North")){
-                System.out.println("Go South");
-            }
-            else if(stack[i].equals("Go South")){
-                System.out.println("Go North");
-            }
-            else if(stack[i].equals("Go East")){
-                System.out.println("Go West");
-            }
-            else if(stack[i].equals("Go West")){
-                System.out.println("Go East");
+            switch(stack[i]){
+                case "Go North":
+                    System.out.println("Go South");
+                    break;
+                case "Go South":
+                    System.out.println("Go North");
+                    break;
+                case "Go East":
+                    System.out.println("Go West");
+                    break;
+                case "Go West":
+                    System.out.println("Go East");
+                    break;
             }
         }
     }
