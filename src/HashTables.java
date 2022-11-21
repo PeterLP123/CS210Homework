@@ -23,6 +23,7 @@ public class HashTables {
         for(int i = 0; i < arr.length; i++){
             find(size, hash1, arr[i]);
         }
+        System.out.println(hash1.countnull());
         System.out.println(hash1.gettotal());
     }
 
@@ -34,19 +35,25 @@ public class HashTables {
         //this method should return the slot in the hashtable where the word is
         
         long sum = 0;
+        int count = 0;
         for(int j = 0; j < word.length() && j < 12; j++){     
             long charno = word.charAt(j);
             long powers = (long) (charno * Math.pow(27, j));
             sum += powers;
         }
         sum %= size;
-        while(sum < size){
+        //sum *= sum;
+        //sum %= size;
+        while(true){
+            if(sum >= size){
+                sum -= size;
+            }
             if(mytable.check((int)sum, word)){
                 return (int)sum;
             }
-            sum++;
+            count++;
+            sum += Math.pow(count, 2);
         }
-        return 0;
     }
    
     public static String[] fill(int size, String[] array){
@@ -57,18 +64,26 @@ public class HashTables {
         String[] hashtable = new String[size];
         for(int i=0;i<array.length;i++){
             long sum = 0;
+            int count = 0;
             for(int j = 0; j < array[i].length() && j < 12; j++){     
                 long charno = array[i].charAt(j);
                 long powers = (long) (charno * Math.pow(27, j));
                 sum += powers;
             }
             sum %= size;
-            while(sum < size){
+            //sum *= sum;
+            System.out.println(sum);
+            //sum %= size;
+            while(true){
+                if(sum >= size){
+                    sum -= size;
+                }
                 if(hashtable[(int)sum] == null){
                     hashtable[(int)sum] = array[i];
                     break;
                 }
-                sum++;
+                count++;
+                sum += Math.pow(count, 2);
             }
         }
         return hashtable;
@@ -95,5 +110,15 @@ class HashTable{
    
     public long gettotal(){
         return total;
+    }
+
+    public int countnull(){
+        int nulls = 0;
+        for(int i = 0; i < hashTable.length; i++){
+            if(hashTable[i] == null){
+                nulls++;
+            }
+        }
+        return nulls;
     }
 }
