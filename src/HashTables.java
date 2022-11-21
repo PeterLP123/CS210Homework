@@ -34,7 +34,7 @@ public class HashTables {
         //this method should return the slot in the hashtable where the word is
         
         long sum = 0;
-        for(int j = 0; j < word.length() && j < 10; j++){     
+        for(int j = 0; j < word.length() && j < 12; j++){     
             long charno = word.charAt(j);
             long powers = (long) (charno * Math.pow(27, j));
             sum += powers;
@@ -57,7 +57,7 @@ public class HashTables {
         String[] hashtable = new String[size];
         for(int i=0;i<array.length;i++){
             long sum = 0;
-            for(int j = 0; j < array[i].length() && j < 10; j++){     
+            for(int j = 0; j < array[i].length() && j < 12; j++){     
                 long charno = array[i].charAt(j);
                 long powers = (long) (charno * Math.pow(27, j));
                 sum += powers;
