@@ -16,14 +16,10 @@ public class HashTables {
             count1++;
         }
         String [] finished = fill(size, arr);
-        for(int i = 0; i < finished.length; i++){
-            System.out.println(finished[i]);
-        }
         HashTable hash1 = new HashTable(finished);
         for(int i = 0; i < arr.length; i++){
             find(size, hash1, arr[i]);
         }
-        System.out.println(hash1.countnull());
         System.out.println(hash1.gettotal());
     }
 
@@ -53,6 +49,7 @@ public class HashTables {
             }
             count++;
             sum += Math.pow(count, 2);
+            //sum++;
         }
     }
    
@@ -71,9 +68,6 @@ public class HashTables {
                 sum += powers;
             }
             sum %= size;
-            //sum *= sum;
-            System.out.println(sum);
-            //sum %= size;
             while(true){
                 if(sum >= size){
                     sum -= size;
@@ -84,6 +78,7 @@ public class HashTables {
                 }
                 count++;
                 sum += Math.pow(count, 2);
+                //sum++;
             }
         }
         return hashtable;
