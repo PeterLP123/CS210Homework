@@ -44,53 +44,47 @@ public class Labyrinth{
 }
 
 class Brain{
-    public int [][] map = new int [40][40];
-    int x = 20;
-    int y = 20;
+    public boolean [][] visited = new boolean [40][40];
+    int currentX = 20;
+    int currentY = 20;
     Stack<String> path = new Stack<String>();
-    Brain(){
-        for(int i = 0; i < map.length; i++){
-            for(int j = 0; j < map[i].length; j++){
-                map[i][j] = 0;
-            }
-        }
-    }
     public String getMove(boolean north, boolean south, boolean east, boolean west){
-        map[x][y] = 1;
-        //System.out.println(x + "," + y);
-        if(north && map[x][y+1] == 0){
+        visited[currentX][currentY] = true;
+        if(north && !visited[currentX][currentY+1]){
             path.push("south");
-            y++;
+            currentY++;
             return "north";
         }
-        else if(south && map[x][y-1] == 0){
+        else if(south && !visited[currentX][currentY-1]){
             path.push("north");
-            y--;
+            currentY--;
             return "south";
         }
-        else if(east && map[x+1][y] == 0){
+        else if(east && !visited[currentX+1][currentY]){
             path.push("west");
-            x++;
+            currentX++;
             return "east";
         }
-        else if(west && map[x-1][y] == 0){
+        else if(west && !visited[currentX-1][currentY]){
             path.push("east");
-            x--;
+            currentX--;
             return "west";
         }
         else{
             String back = path.pop();
-            if(back.equals("north")){
-                y++;
-            }
-            else if(back.equals("south")){
-                y--;
-            }
-            else if(back.equals("east")){
-                x++;
-            }
-            else if(back.equals("west")){
-                x--;
+            switch(back){
+                case "north":
+                    currentY++;
+                    break;
+                case "south":
+                    currentY--;
+                    break;
+                case "east":
+                    currentX++;
+                    break;
+                case "west":
+                    currentX--;
+                    break;
             }
             return back;
         }
