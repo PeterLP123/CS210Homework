@@ -1,4 +1,3 @@
-package ExamQuestions;
 public class Question1_2022J {
     public static void main(String [] args){
         int num = 1;

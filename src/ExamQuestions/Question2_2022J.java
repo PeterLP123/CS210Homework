@@ -1,4 +1,3 @@
-package ExamQuestions;
 import java.util.Random;
 import java.util.Scanner;
 public class Question2_2022J {

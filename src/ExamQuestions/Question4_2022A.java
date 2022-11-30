@@ -1,4 +1,3 @@
-package ExamQuestions;
 import java.util.Scanner;
 public class Question4_2022A {
     public static void main(String [] args){
