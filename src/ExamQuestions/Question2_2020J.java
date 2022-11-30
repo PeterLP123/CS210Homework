@@ -16,3 +16,15 @@ Include comments which explain your code clearly.
 State the Big O complexity of your program and justify your
 reasoning. 
 */
+public class Question2_2020J{
+    public static void main(String [] args){
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h','i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        String [] arr = new String [10000];
+        int [] arrValues = new int [10000];
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr[i].length(); j++){
+                
+            }
+        } 
+    }
+}
