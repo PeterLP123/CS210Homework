@@ -10,7 +10,7 @@ public class Lab11_Question1{
         if(n == 1){
             return 2;
         }else{
-            return 4 * function(n-1) - 3 * n;
+            return (4 * function(n-1)) - (3 * n);
         }
     }
 }
