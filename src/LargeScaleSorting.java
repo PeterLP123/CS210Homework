@@ -4,6 +4,7 @@ public class LargeScaleSorting {
         Scanner sc = new Scanner(System.in);
         long a = sc.nextLong();
         long b = sc.nextLong();
+        long c = sc.nextLong();
         sc.close();
         long nums [] = new long[(int) (b - a + 1)];
         long collatz [] = new long[(int) (b - a + 1)];
@@ -12,13 +13,14 @@ public class LargeScaleSorting {
             collatz[i] = collatzLength(a);
             a++;
         }
-        for(int i = 0; i < nums.length; i++){
+        /*for(int i = 0; i < nums.length; i++){
             System.out.println(nums[i] + "," + collatz[i]);
-        }
+        }*/
         mergeSort(collatz, nums);
-        for(int i = 0; i < nums.length; i++){
+        /*for(int i = 0; i < nums.length; i++){
             System.out.println(nums[i] + "," + collatz[i]);
-        }
+        }*/
+        System.out.println(nums[(int) c - 1]);
     }
 
     //Collatz Length
